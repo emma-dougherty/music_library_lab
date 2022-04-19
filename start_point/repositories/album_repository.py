@@ -22,7 +22,7 @@ def select(id):
     values = [id] 
     results = run_sql(sql, values)
     if results:
-        result = result[0]
+        result = results[0]
         artist = artist_repository.select(result['artist_id'])
         album = Album(result['title'], result['genre'], artist, result['id'] )
     return album
