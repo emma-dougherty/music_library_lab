@@ -19,8 +19,9 @@ def select(id):
     artist = None
     sql = "SELECT * FROM artists WHERE id = %s"  
     values = [id] 
-    result = run_sql(sql, values)[0]
-    if result is not None:
+    results = run_sql(sql, values)
+    if result:
+        result = results[0]
         artist = Artist(result['name'], result['id'] )
     return artist
 
